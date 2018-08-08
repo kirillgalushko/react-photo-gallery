@@ -30,7 +30,7 @@ class Gallery extends React.Component {
   render() {
     const { ImageComponent = Photo } = this.props;
     // subtract 1 pixel because the browser may round up a pixel
-    const { columns, margin, onClick, direction } = this.props;
+    const { columns, margin, onClick, direction, originalFiles } = this.props;
     const photos = this.props.photos;
     const width = this.state.containerWidth - 1;
     let galleryStyle, thumbs;
@@ -49,12 +49,19 @@ class Gallery extends React.Component {
         <div ref={c => (this._gallery = c)} style={galleryStyle}>
           {thumbs.map((photo, index) => {
             const { left, top, containerHeight, ...rest } = photo;
+            let originalFile = null;
+            if (originalFiles) {
+              originalFile = originalFiles.find(file => {
+                file.id === photo.key;
+              });
+            }
             return (
               <ImageComponent
                 key={photo.key || photo.src}
                 margin={margin}
                 index={index}
                 photo={rest}
+                originalFile={originalFile}
                 direction={direction}
                 left={left}
                 top={top}
@@ -70,6 +77,7 @@ class Gallery extends React.Component {
 
 Gallery.propTypes = {
   photos: PropTypes.arrayOf(photoPropType).isRequired,
+  originalFiles: PropTypes.arrayOf(Object),
   direction: PropTypes.string,
   onClick: PropTypes.func,
   columns: PropTypes.number,
