@@ -77,7 +77,7 @@ class Gallery extends React.Component {
 Gallery.propTypes = {
   photos: PropTypes.arrayOf(photoPropType).isRequired,
   originalFiles: PropTypes.arrayOf(Object).isRequired,
-  permissionSet: PropTypes.Object.isRequired,
+  permissionSet: PropTypes.object.isRequired,
   direction: PropTypes.string,
   onClick: PropTypes.func,
   columns: PropTypes.number,
