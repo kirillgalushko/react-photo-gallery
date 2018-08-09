@@ -52,7 +52,7 @@ class Gallery extends React.Component {
             let originalFile = null;
             if (originalFiles) {
               originalFile = originalFiles.find(file => {
-                file.id === photo.key;
+                return file.id === photo.key;
               });
             }
             return (
