@@ -494,6 +494,9 @@ var Gallery = function (_React$Component) {
               return _this3._gallery = c;
             }, style: galleryStyle },
           thumbs.map(function (photo, index) {
+            var originalFile = originalFiles.filter(function (originalFile) {
+              return originalFile.id === rest.key;
+            })[0];
             var left = photo.left,
                 top = photo.top,
                 containerHeight = photo.containerHeight,
@@ -504,9 +507,7 @@ var Gallery = function (_React$Component) {
               margin: margin,
               index: index,
               photo: rest,
-              originalFile: originalFiles.find(function (file) {
-                return file.id === photo.key;
-              }),
+              originalFile: originalFile,
               direction: direction,
               left: left,
               top: top,
