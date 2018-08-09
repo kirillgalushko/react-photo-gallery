@@ -31,7 +31,7 @@ class Gallery extends React.Component {
   render() {
     const { ImageComponent = Photo } = this.props;
     // subtract 1 pixel because the browser may round up a pixel
-    const { columns, margin, onClick, direction, originalFiles } = this.props;
+    const { columns, margin, onClick, direction, originalFiles, permissionSet } = this.props;
     const photos = this.props.photos;
     const width = this.state.containerWidth - 1;
     let galleryStyle, thumbs;
@@ -60,6 +60,7 @@ class Gallery extends React.Component {
                 index={index}
                 photo={rest}
                 originalFile={originalFile}
+                permissionSet={permissionSet}
                 direction={direction}
                 left={left}
                 top={top}
@@ -76,6 +77,7 @@ class Gallery extends React.Component {
 Gallery.propTypes = {
   photos: PropTypes.arrayOf(photoPropType).isRequired,
   originalFiles: PropTypes.arrayOf(Object).isRequired,
+  permissionSet: PropTypes.Object.isRequired,
   direction: PropTypes.string,
   onClick: PropTypes.func,
   columns: PropTypes.number,

@@ -464,7 +464,8 @@ var Gallery = function (_React$Component) {
           margin = _props.margin,
           onClick = _props.onClick,
           direction = _props.direction,
-          originalFiles = _props.originalFiles;
+          originalFiles = _props.originalFiles,
+          permissionSet = _props.permissionSet;
 
       var photos = this.props.photos;
       var width = this.state.containerWidth - 1;
@@ -503,6 +504,7 @@ var Gallery = function (_React$Component) {
               index: index,
               photo: rest,
               originalFile: originalFile,
+              permissionSet: permissionSet,
               direction: direction,
               left: left,
               top: top,
@@ -519,6 +521,7 @@ var Gallery = function (_React$Component) {
 Gallery.propTypes = {
   photos: PropTypes.arrayOf(photoPropType).isRequired,
   originalFiles: PropTypes.arrayOf(Object).isRequired,
+  permissionSet: PropTypes.Object.isRequired,
   direction: PropTypes.string,
   onClick: PropTypes.func,
   columns: PropTypes.number,
