@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ResizeObserver from 'resize-observer-polyfill';
-import { find } from 'lodash';
+import { compact, find } from 'lodash';
 
 var asyncGenerator = function () {
   function AwaitValue(value) {
@@ -494,7 +494,7 @@ var Gallery = function (_React$Component) {
                 containerHeight = photo.containerHeight,
                 rest = objectWithoutProperties(photo, ['left', 'top', 'containerHeight']);
 
-            var originalFile = find(originalFiles, function (file) {
+            var originalFile = find(compact(originalFiles), function (file) {
               return file.id === photo.key;
             });
             return React.createElement(ImageComponent, {

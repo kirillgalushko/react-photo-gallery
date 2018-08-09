@@ -9931,7 +9931,7 @@ var Gallery = function (_React$Component) {
                 containerHeight = photo.containerHeight,
                 rest = objectWithoutProperties(photo, ['left', 'top', 'containerHeight']);
 
-            var originalFile = undefined(originalFiles, function (file) {
+            var originalFile = undefined(undefined(originalFiles), function (file) {
               return file.id === photo.key;
             });
             return React.createElement(ImageComponent, {

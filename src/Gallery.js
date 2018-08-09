@@ -50,7 +50,7 @@ class Gallery extends React.Component {
         <div ref={c => (this._gallery = c)} style={galleryStyle}>
           {thumbs.map((photo, index) => {
             const { left, top, containerHeight, ...rest } = photo;
-            const originalFile = _.find(originalFiles, file => {
+            const originalFile = _.find(_.compact(originalFiles), file => {
               return file.id === photo.key;
             });
             return (
