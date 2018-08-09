@@ -48,9 +48,6 @@ class Gallery extends React.Component {
       <div className="react-photo-gallery--gallery">
         <div ref={c => (this._gallery = c)} style={galleryStyle}>
           {thumbs.map((photo, index) => {
-            const originalFile = originalFiles.filter(originalFile => {
-              return originalFile.id === photo.key;
-            })[0];
             const { left, top, containerHeight, ...rest } = photo;
             return (
               <ImageComponent
@@ -58,7 +55,7 @@ class Gallery extends React.Component {
                 margin={margin}
                 index={index}
                 photo={rest}
-                originalFile={originalFile}
+                originalFiles={originalFiles}
                 direction={direction}
                 left={left}
                 top={top}
