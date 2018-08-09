@@ -499,18 +499,14 @@ var Gallery = function (_React$Component) {
                 containerHeight = photo.containerHeight,
                 rest = objectWithoutProperties(photo, ['left', 'top', 'containerHeight']);
 
-            var originalFile = null;
-            if (originalFiles) {
-              originalFile = originalFiles.find(function (file) {
-                return file.id === photo.key;
-              });
-            }
             return React.createElement(ImageComponent, {
               key: photo.key || photo.src,
               margin: margin,
               index: index,
               photo: rest,
-              originalFile: originalFile,
+              originalFile: originalFiles.find(function (file) {
+                return file.id === photo.key;
+              }),
               direction: direction,
               left: left,
               top: top,
@@ -526,7 +522,7 @@ var Gallery = function (_React$Component) {
 
 Gallery.propTypes = {
   photos: PropTypes.arrayOf(photoPropType).isRequired,
-  originalFiles: PropTypes.arrayOf(Object),
+  originalFiles: PropTypes.arrayOf(Object).isRequired,
   direction: PropTypes.string,
   onClick: PropTypes.func,
   columns: PropTypes.number,
