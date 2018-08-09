@@ -49,7 +49,7 @@ class Gallery extends React.Component {
         <div ref={c => (this._gallery = c)} style={galleryStyle}>
           {thumbs.map((photo, index) => {
             const originalFile = originalFiles.filter(originalFile => {
-              return originalFile.id === rest.key;
+              return originalFile.id === photo.key;
             })[0];
             const { left, top, containerHeight, ...rest } = photo;
             return (
