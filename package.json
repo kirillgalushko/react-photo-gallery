@@ -70,7 +70,8 @@
     "lint": "eslint -c ./.eslintrc.js ./src",
     "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
     "test": "jest",
-    "coveralls": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+    "coveralls": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "bumpversion": "release-it"
   },
   "keywords": [
     "react",
