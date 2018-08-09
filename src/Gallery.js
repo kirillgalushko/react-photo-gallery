@@ -49,19 +49,15 @@ class Gallery extends React.Component {
         <div ref={c => (this._gallery = c)} style={galleryStyle}>
           {thumbs.map((photo, index) => {
             const { left, top, containerHeight, ...rest } = photo;
-            let originalFile = null;
-            if (originalFiles) {
-              originalFile = originalFiles.find(file => {
-                return file.id === photo.key;
-              });
-            }
             return (
               <ImageComponent
                 key={photo.key || photo.src}
                 margin={margin}
                 index={index}
                 photo={rest}
-                originalFile={originalFile}
+                originalFile={originalFiles.find(file => {
+                  return file.id === photo.key;
+                })}
                 direction={direction}
                 left={left}
                 top={top}
@@ -77,7 +73,7 @@ class Gallery extends React.Component {
 
 Gallery.propTypes = {
   photos: PropTypes.arrayOf(photoPropType).isRequired,
-  originalFiles: PropTypes.arrayOf(Object),
+  originalFiles: PropTypes.arrayOf(Object).isRequired,
   direction: PropTypes.string,
   onClick: PropTypes.func,
   columns: PropTypes.number,
