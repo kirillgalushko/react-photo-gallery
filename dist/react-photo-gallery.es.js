@@ -496,7 +496,7 @@ var Gallery = function (_React$Component) {
             var originalFile = null;
             if (originalFiles) {
               originalFile = originalFiles.find(function (file) {
-                file.id === photo.key;
+                return file.id === photo.key;
               });
             }
             return React.createElement(ImageComponent, {

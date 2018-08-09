@@ -1,8 +1,10 @@
 # examples
 examples
+examples/
 
 # tests
 __test__
+__test__/
 
 # build
 example/dist
