@@ -5,7 +5,7 @@ const ExampleBasic = ({photos, columns, title, direction}) => {
     return (
       <div>
         <h2>{title}</h2>
-        <Gallery photos={photos} columns={columns} direction={direction}/>
+        <Gallery photos={photos} columns={columns} direction={direction} oririnalFiles={{ files: [] }} />
       </div>
     );
 }

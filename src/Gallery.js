@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import ResizeObserver from 'resize-observer-polyfill';
 import Photo, { photoPropType } from './Photo';
 import { computeSizes, computeSizesColumns } from './utils';
+import * as _ from 'lodash';
 
 class Gallery extends React.Component {
   state = {
@@ -49,13 +50,16 @@ class Gallery extends React.Component {
         <div ref={c => (this._gallery = c)} style={galleryStyle}>
           {thumbs.map((photo, index) => {
             const { left, top, containerHeight, ...rest } = photo;
+            const originalFile = _.find(originalFiles, file => {
+              return file.id === photo.key;
+            });
             return (
               <ImageComponent
                 key={photo.key || photo.src}
                 margin={margin}
                 index={index}
                 photo={rest}
-                originalFiles={originalFiles}
+                originalFile={originalFile}
                 direction={direction}
                 left={left}
                 top={top}
